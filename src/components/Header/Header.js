@@ -12,7 +12,7 @@ const Header = ({ setCoordinates}) => {
 
   const onLoad = (autoC) => setAutocomplete(autoC);
 
-  const onChanged = () => {
+  const onPlaceChanged = () => {
     const lat = autocomplete.getPlace().geometry.location.lat();
     const lng = autocomplete.getPlace().geometry.location.lng();
 
@@ -36,7 +36,7 @@ const Header = ({ setCoordinates}) => {
               </div>
 
               <InputBase placeholder='Search...' classes={{ root: classes.inputRoot, 
-              inout: classes.inputInput}}/>
+              input: classes.inputInput}}/>
             </div>
           </Autocomplete>
         </Box>

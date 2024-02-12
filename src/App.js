@@ -58,9 +58,9 @@ function App() {
         setType={setType}
         rating={rating}
         setRating={setRating}/>
-
       </Grid>
-      <Grid item xs={12}></Grid>
+
+      <Grid item xs={12} md={8}></Grid>
       <Map setCoordinates={setCoordinates}
       setBounds={setBounds}
       coordinates={coordinates}

@@ -1,6 +1,7 @@
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-
+import React, { useEffect, useState, createRef } from 'react'
+import useStyles from './styles';
+import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
 const List = ({ places, childClicked, isLoading, type,
   setType,
@@ -11,26 +12,13 @@ const List = ({ places, childClicked, isLoading, type,
   const [elRefs, setElRefs] = useState([]);
 
   useEffect(() => {
-    const refs =  Array(places?.length).fill().map((_, i) => refs[i] || createRef()));
-    setElRefs(refs)
-  }, [places])
-
-  // const places =[
-  //   {name: 'Cool place'},
-  //   {name: 'Best food'},
-  //   {name: 'Delisioso'},
-  //   {name: 'Cool place'},
-  //   {name: 'Best food'},
-  //   {name: 'Delisioso'},
-  //   {name: 'Cool place'},
-  //   {name: 'Best food'},
-  //   {name: 'Delisioso'},
-  // ]
-
+    setElRefs((refs) => Array(places?.length).fill().map((_, i) => refs[i] || createRef()));
+  }, [places]);
+  
   return (
     <div className={classes.container}>
       <Typography variant="h4">
-        Food & Dining around you
+        Restaurants, hotels and attractions around you
       </Typography>
       {isLoading ? (
         <div className={classes.loading}>
@@ -38,7 +26,7 @@ const List = ({ places, childClicked, isLoading, type,
         </div>
       ) : (
           <>
-        <FormControl className={classes.FormControl}>
+        <FormControl className={classes.formControl}>
         <InputLabel>Type</InputLabel>
         <Select value={type} onChange={(e) => setType(e.target.value)}>
           <MenuItem value="restaurants">Restaurants</MenuItem>

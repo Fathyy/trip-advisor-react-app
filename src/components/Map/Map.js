@@ -1,8 +1,8 @@
 import React from 'react'
-import googleMapReact from 'google-map-react'
+import GoogleMapReact from 'google-map-react'
 import { Paper, Rating, Typography, useMediaQuery } from '@mui/material'
 // change the icon below later, it's not the right one
-import { LocationCityOutlined } from '@mui/icons-material'
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 import useStyles from './styles'
 
@@ -13,7 +13,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked})
 
   return (
     <div className={classes.mapContainer}>
-      <googleMapReact bootstrapURLKeys = {{ key: '' }}
+      <GoogleMapReact bootstrapURLKeys = {{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
       defaultCenter={coordinates}
       center={coordinates}
       defaultZoom={14}
@@ -34,7 +34,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked})
           >
             {/* if it's not desktop show the pins, otherwise show the paper */}
             {!isDesktop
-              ? <LocationCityOutlined color="primary" fontSize="large" />
+              ? <LocationOnIcon color="primary" fontSize="large" />
               : (
                 <Paper elevation={3} className={classes.paper}>
                   <Typography className={classes.typography} variant="subtitle2" gutterBottom> {place.name}</Typography>
@@ -47,7 +47,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked})
           </div>
         ))}
 
-      </googleMapReact>
+      </GoogleMapReact>
     </div>
   )
 }

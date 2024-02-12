@@ -1,7 +1,6 @@
-import { makeStyles } from "@mui/material";
+import styled from '@emotion/styled';
 
-
-export default makeStyles(() => ({
+export default styled(() => ({
   paper: {
     padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100px',
   },

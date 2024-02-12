@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, Typography, Button, Card, CardMedia, CardContent, CardActions,
-Chip } from '@mui/material';
+Chip, Rating} from '@mui/material';
 import { LocationOnRounded, Phone} from '@mui/icons-material';
-import Rating from '@mui/material';
+// import Rating from '@mui/material';
 
 import useStyles from './styles';
 
@@ -20,7 +20,7 @@ const PlaceDetails = ({place, selected, refProp}) => {
       <CardContent>
         <Typography gutterBottom variant='h5'>{place.name}</Typography>
         <Box display='flex' justifyContent='space-between'>
-          <Rating name="read-only" size="small" value={Number(place.rating)} readOnly />
+          <Rating name="read-only" size="small" value={Number(place.rating)} readOnly/>
           <Typography gutterBottom variant='subtitle1'>Out of {place.num.reviews} reviews</Typography>
         </Box>
 
